@@ -4,11 +4,8 @@ const {RamlJsDataProvider} = require('../lib/data-provider');
 const assert = require('chai').assert;
 
 describe('Data provider', () => {
-
-  var processor;
-
+  let processor;
   describe('Constructor', function() {
-
     it('Throws an error for invalid options', function() {
       assert.throws(function() {
         new RamlJsDataProvider({
@@ -42,7 +39,7 @@ describe('Data provider', () => {
 
   describe('printValidationErrors()', function() {
     it('Prints validation error to the logger.error', function() {
-      var calledCount = 0;
+      let calledCount = 0;
       const logger = {
         error: function() {
           calledCount++;
@@ -61,7 +58,7 @@ describe('Data provider', () => {
 
   describe('printValidationWarnings()', function() {
     it('Prints validation error to the logger.error', function() {
-      var calledCount = 0;
+      let calledCount = 0;
       const logger = {
         warn: function() {
           calledCount++;
@@ -88,8 +85,8 @@ describe('Data provider', () => {
     });
 
     it('server is the same object each time called', function() {
-      var t1 = processor.server;
-      var t2 = processor.server;
+      let t1 = processor.server;
+      let t2 = processor.server;
       assert.isTrue(t1 === t2);
     });
 
@@ -98,8 +95,8 @@ describe('Data provider', () => {
     });
 
     it('consoleSources is the same object each time called', function() {
-      var t1 = processor.ramlSource;
-      var t2 = processor.ramlSource;
+      let t1 = processor.ramlSource;
+      let t2 = processor.ramlSource;
       assert.isTrue(t1 === t2);
     });
   });
@@ -116,7 +113,7 @@ describe('Data provider', () => {
 
     it('Produces javascript object from RAML', function() {
       return processor._setRaml()
-      .then(result => {
+      .then((result) => {
         assert.typeOf(result, 'object');
       });
     });

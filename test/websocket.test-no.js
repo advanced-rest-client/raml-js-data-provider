@@ -5,9 +5,8 @@ const assert = require('chai').assert;
 const WebSocketNode = require('ws');
 
 describe('Websocket server', () => {
-
-  var processor;
-  const host  = '127.0.0.1';
+  let processor;
+  const host = '127.0.0.1';
   const initialRaml = {title: 'Test'};
 
   describe('Running server', function() {
@@ -17,13 +16,13 @@ describe('Websocket server', () => {
       api: 'api.raml'
     };
 
-    var port;
-    var ws;
+    let port;
+    let ws;
     before(function() {
       processor = new RamlJsDataProvider(options);
       return processor.start()
-      .then(initPort => {
-        port  = initPort;
+      .then((initPort) => {
+        port = initPort;
         processor.server.sendRaml(initialRaml);
       });
     });
@@ -81,13 +80,13 @@ describe('Websocket server', () => {
       api: 'api.raml'
     };
 
-    var port;
-    var ws;
+    let port;
+    let ws;
     before(function() {
       processor = new RamlJsDataProvider(options);
       return processor.start()
-      .then(initPort => {
-        port  = initPort;
+      .then((initPort) => {
+        port = initPort;
         processor.server.sendRaml(initialRaml);
       });
     });
@@ -146,6 +145,5 @@ describe('Websocket server', () => {
       });
       processor._updateApiData();
     });
-
   });
 });

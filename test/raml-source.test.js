@@ -18,7 +18,7 @@ describe('RAML source', () => {
       // console.info.apply(console, arguments);
     }
   };
-  var processor;
+  let processor;
   before(function() {
     processor = new RamlSource(logger);
   });
@@ -26,7 +26,7 @@ describe('RAML source', () => {
   describe('getRamlJson()', function() {
     it('Quietly resolves undefined when path is not set', function() {
       return processor.getRamlJson()
-      .then(content => assert.isUndefined(content));
+      .then((content) => assert.isUndefined(content));
     });
 
     it('Returns with parsed RAML', function() {

@@ -4,10 +4,8 @@ const {ProviderOptions} = require('../lib/provider-options.js');
 const assert = require('chai').assert;
 
 describe('Options', () => {
-
   describe('validateOptions()', () => {
-    var options;
-
+    let options;
     describe('_validateOptionsList()', () => {
       beforeEach(function() {
         options = new ProviderOptions();
@@ -50,8 +48,7 @@ describe('Options', () => {
   });
 
   describe('Default options', () => {
-    var options;
-
+    let options;
     before(function() {
       options = new ProviderOptions();
     });
